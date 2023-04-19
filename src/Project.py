@@ -5,12 +5,10 @@ import sqlite3
 sqliteConnection = sqlite3.connect(r"C:\Users\admin\Pessoal\Whitecliffe\codes\Natassjia\Presentation\DataBase.db")
 cursor = sqliteConnection.cursor()
 
-table = Table(title="[bold]Projects[/bold]")
-
 class Projects:
     def project(self):
         #Ir no banco, fazer um FOR. Abre um cursor, para cada linha retornda pelo cursor (FOR EACH ROW)
-        
+        table = Table(title="[bold]Projects[/bold]")
         table.add_column("ID", justify="right", style="cyan", no_wrap=True)
         table.add_column("Title", style="magenta")
         table.add_column("Author", justify="right", style="green")

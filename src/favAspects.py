@@ -6,22 +6,25 @@ import sqlite3
 sqliteConnection = sqlite3.connect(r"C:\Users\admin\Pessoal\Whitecliffe\codes\Natassjia\Presentation\DataBase.db")
 cursor = sqliteConnection.cursor()
 
-aspecttable = Table(title ="[bold magenta]Favourite Aspects[/bold magenta]")          
+        
 
 
 class FavourtiteAspects:
     def aspects(self):
-            aspecttable.add_column("ID", justify="right", style="cyan", no_wrap=True)
-            aspecttable.add_column("Fav. Aspect", justify="right", style="green")
+            aspecttable = Table(title ="[bold magenta]Favourite Aspects[/bold magenta]")  
+            while True:
+                aspecttable.add_column("ID", justify="right", style="cyan", no_wrap=True)
+                aspecttable.add_column("Fav. Aspect", justify="right", style="green")
 
-            ssql = f"Select * from FavAspect"
-            cursor = sqliteConnection.cursor()
-            cursor.execute(ssql)
-            rows = cursor.fetchall()
-            for row in rows:
-                aspecttable.add_row(str(row[0]), row[1])
-            console = Console()
-            console.print(aspecttable)
-            print("Select your favorite aspects of the presentation")
-            answer = input() 
-            return answer
+                ssql = f"Select * from FavAspect"
+                cursor = sqliteConnection.cursor()
+                cursor.execute(ssql)
+                rows = cursor.fetchall()
+                for row in rows:
+                    aspecttable.add_row(str(row[0]), row[1])
+                console = Console()
+                console.print(aspecttable)
+                print("Select your favorite aspects of the presentation")
+                answer = input() 
+                return answer
+                #break 

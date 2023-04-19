@@ -6,6 +6,7 @@ from Jobs import Job
 #from src.Feedback import Feedbacks
 from Project import Projects
 from Evalbyproject import EvalByProject
+from dash import DASHBOARD
 
 '''''''''
 Classe de menus - display das telas que o usuario ira escolher entre elas. 
@@ -20,9 +21,16 @@ class Menu:
         print(" :star: [bold yellow]Welcome to our Exibition [/bold yellow].:star:")
         evalu = Evaluator()
         evalu.ask() 
-        while True: 
+        self.evaluation()
+        print("Would you like to evaluate another project? Type 1 for YES or 2 for NO")
+        answer = input()
+        if answer == '1':
             self.evaluation()
-            #Fazer um IF aqui, se a pessoa quiser avaliar outro ou nao 
+        elif answer == '2':
+            print("[bold yellow]Please, check the dashboard before leaving. It was a pleasure having you here. :heart: [/bold yellow]")
+            dash = DASHBOARD()
+            dash.queries()       
+    
 
 
     def evaluation(self):

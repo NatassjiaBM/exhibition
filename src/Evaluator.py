@@ -41,7 +41,7 @@ class Evaluator:
                     print("Type your gender using M for Male, F for Female, O for others")
                     answer = input()
                     if answer.lower() not in ('f', 'm', 'o'):
-                        print(answer, "is not valid. Please type M/F/O")
+                        print(answer, ":no: is not valid. Please type M/F/O")
                     else: 
                         self.gender = answer
                         break

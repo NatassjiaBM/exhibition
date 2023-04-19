@@ -6,11 +6,10 @@ sqliteConnection = sqlite3.connect(r"C:\Users\admin\Pessoal\Whitecliffe\codes\Na
 cursor = sqliteConnection.cursor()
 
 
-table = Table(title="[bold]Courses[/bold]")
-
 class Course: 
     
     def courses(self):
+        table = Table(title="[bold]Courses[/bold]")
         table.add_column("ID", justify="right", style="cyan", no_wrap=True)
         table.add_column("Course name", justify="left", style="green")
 

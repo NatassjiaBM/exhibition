@@ -6,6 +6,7 @@ import sqlite3
 from favAspects import FavourtiteAspects
 from Project import Projects
 from Evaluator import Evaluator
+from dash import DASHBOARD
 
 sqliteConnection = sqlite3.connect(r"C:\Users\admin\Pessoal\Whitecliffe\codes\Natassjia\Presentation\DataBase.db")
 cursor = sqliteConnection.cursor()
@@ -39,7 +40,7 @@ class EvalByProject:
         fanswer = favaspect.aspects()
         self.favAspectID = fanswer
         while True: 
-            print("Would you come to future exibitions? Type 1 for YES or 2 for NO.")
+            print("[bold purple] :pencil: Would you come to future exibitions? Type 1 for YES or 2 for NO.[/bold purple]")
             visitAnswer = input()
             if visitAnswer not in ("1", "2"):
                 print(visitAnswer, "is not valid. Please type 1 or 2")
@@ -53,7 +54,9 @@ class EvalByProject:
                 self.feedback()
                 break
             elif answer == '2':
-                print("Thank you for coming. Please check the dashboard before leaving")
+                print("[bold yellow]Thank you for coming. Please check the dashboard before leaving :heart: [/bold yellow]")
+                dash = DASHBOARD()
+                dash.queries()
                 break
             else: 
                 print(answer, "is not recognized. Please type 1 or 2.")
