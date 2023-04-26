@@ -7,6 +7,7 @@ from favAspects import FavourtiteAspects
 from Project import Projects
 from Evaluator import Evaluator
 from dash import DASHBOARD
+#from Menu import Menu
 
 sqliteConnection = sqlite3.connect(r"C:\Users\admin\Pessoal\Whitecliffe\codes\Natassjia\Presentation\DataBase.db")
 cursor = sqliteConnection.cursor()
@@ -54,9 +55,17 @@ class EvalByProject:
                 self.feedback()
                 break
             elif answer == '2':
-                print("[bold yellow]Thank you for coming. Please check the dashboard before leaving :heart: [/bold yellow]")
-                dash = DASHBOARD()
-                dash.queries()
+                print("Would you like to evaluate another project? Type 1 for YES or 2 for NO")
+                answer = input()
+                if answer == '1':
+                    self.main()
+                elif answer == '2':
+                    print("[bold yellow]Please, check the dashboard before leaving. It was a pleasure having you here. :heart: [/bold yellow]")
+                    dash = DASHBOARD()
+                    dash.queries()       
+                # print("[bold yellow]Thank you for coming. Please check the dashboard before leaving :heart: [/bold yellow]")
+                # dash = DASHBOARD()
+                # dash.queries()
                 break
             else: 
                 print(answer, "is not recognized. Please type 1 or 2.")

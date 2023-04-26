@@ -15,9 +15,9 @@ cursor = db.cursor()
 
 class DASHBOARD():
     def queries(self):
-        itemlist = ['Female', 'Male', 'Other']
+        itemlist = ['f', 'm', 'o']
         mylist = []
-        cursor.execute(f"Select gender, count(*) from evaluator group by gender")
+        cursor.execute(f"Select Gender, count(*) from evaluator group by Gender")
         result = cursor.fetchall()
         for row in result: 
             #l = list(map(int, row))
@@ -79,7 +79,7 @@ class DASHBOARD():
         alist = []
         cursor.execute(f"select WillVisit, total from Visit_Again")
         query = cursor.fetchall()
-        for m in query: 
+        for m in query:
             alist.append(m[1])
         plt.subplot(2,2,1)
         print(alist)
